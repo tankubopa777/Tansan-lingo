@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:studio": "npx drizzle-kit studio",
-    "db:push": "npm drizzle-kit push:pg"
+    "db:studio": "bunx drizzle-kit studio",
+    "db:push": "bunx drizzle-kit push:pg",
+    "db:seed": "bun ./scripts/seed.ts"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.2.5",
@@ -22,8 +23,10 @@
     "drizzle-orm": "^0.31.2",
     "lucide-react": "^0.397.0",
     "next": "14.2.4",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "sonner": "^1.5.0",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
@@ -36,6 +39,7 @@
     "pg": "^8.12.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.16.2",
     "typescript": "^5"
   }
 }

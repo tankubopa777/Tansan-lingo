@@ -7,7 +7,7 @@ const CoursesPage = async () => {
 
     const [
         courses,
-        userProgress
+        userProgress,
     ] = await Promise.all([
         coursesData,
         userProgressData

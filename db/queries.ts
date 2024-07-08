@@ -26,3 +26,25 @@ export const getCourseById = cache(async (courseId: number) => {
     const data = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
     return data[0] || null;
 });
+
+export const getUserProgressWithCourse = async () => {
+    const result = await db
+        .select({
+            userProgress: userProgress,
+            course: courses,
+        })
+        .from(userProgress)
+        .leftJoin(courses, eq(userProgress.activeCourseId, courses.id))
+        .limit(1);
+
+    if (result.length === 0) {
+        return null;
+    }
+
+    const { userProgress: userData, course } = result[0];
+
+    return {
+        ...userData,
+        activeCourse: course,
+    };
+};
