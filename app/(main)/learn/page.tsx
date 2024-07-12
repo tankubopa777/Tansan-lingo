@@ -44,7 +44,7 @@ const LearnPage = async () => {
                 ))}
             </FeedWrapper>
         </div>
-        
+
     );
 }
 

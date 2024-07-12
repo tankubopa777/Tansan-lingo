@@ -57,7 +57,7 @@ export const LessonButton = ({
             <div
                 className="relative"
                 style={{
-                    right: `${rightPosition}}px`,
+                    right: `${rightPosition}px`,
                     marginTop: isFirst && !isCompleted ? 60 : 24,
                 }}
             >
@@ -69,7 +69,7 @@ export const LessonButton = ({
                         </div>
                         <div className="absolute left-1/2 -bottom-2 w-0 h-0 border-x-8 border-x-transparent border-t-8 transform -translate-x-1/2" />
                         <CircularProgressbarWithChildren
-                            value={50}
+                            value={percentage}
                             styles={{
                                 path: {
                                     stroke: "#4ade80",
@@ -98,7 +98,20 @@ export const LessonButton = ({
 
                 ) : (
                     <div>
-
+                        <Button
+                            size="rounded"
+                            variant={locked ? "locked" : "secondary"}
+                            className="h-[70px] w-[70px] border-b-8">
+                            <Icon
+                                className={cn(
+                                    "h-10 w-10",
+                                    locked
+                                        ? "fill-neut-400 text-neutral-400 stroke-neutral-400"
+                                        : "fill-primary-foreground text-primary-foreground",
+                                    isCompleted && "fill-none stroke-[4]"
+                                )}
+                            />
+                        </Button>
                     </div>
                 )}
             </div>
